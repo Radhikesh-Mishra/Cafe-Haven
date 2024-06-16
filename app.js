@@ -7,7 +7,7 @@ const path = require('path');
 const mongoose = require('mongoose')
 const nodemailer = require('nodemailer');
 const {v4: uuidv4} = require('uuid');
-const PORT = 9000;
+const PORT = process.env.PORT;
 
 const User = require('./models/user');
 
@@ -17,7 +17,7 @@ app.set(path.resolve('./views'));
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-mongoose.connect('mongodb://127.0.0.1:27017/cafe')
+mongoose.connect(process.env.MONGO_LINK)
     .then(() => console.log('MongoDB is connected'));
 
 app.get('/', (req, res) => {
