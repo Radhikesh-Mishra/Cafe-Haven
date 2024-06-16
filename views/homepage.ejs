@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/links') %>
+        <title>CafeHaven</title>
+        <style>
+            body,
+            html {
+                height: 100%;
+                font-family: "Inconsolata", sans-serif;
+                box-sizing: border-box;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+            .sidenav a {
+                padding: 8px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 5px;
+                font-size: 36px;
+            }
+        </style>
+</head>
+
+<body>
+    <!--    Navbar for bigger screens -->
+    <nav class="w3-top w3-hide-small w3-black" style="display: flex; justify-content: space-between;">
+        <div style="font-size: 25px; margin-top: 10px; margin-left: 5px;">CAFE HAVEN</div>
+        <div class="w3-row w3-padding" style="display: flex; justify-content: space-evenly;">
+            <div class="w3-col">
+                <a href="#" class="w3-block w3-black w3-btn w3-hover-text-gray w3-large">HOME</a>
+            </div>
+            <div class="w3-col">
+                <a href="#about" class="w3-block w3-black w3-btn w3-hover-text-gray w3-large">ABOUT</a>
+            </div>
+            <div class="w3-col">
+                <a href="#menu" class="w3-block w3-black w3-btn w3-hover-text-gray w3-large">MENU</a>
+            </div>
+            <div class="w3-col">
+                <a href="#where" class="w3-block w3-black w3-btn w3-hover-text-gray w3-large">WHERE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--    Navbar for smaller screens  -->
+    <nav class="w3-top w3-hide-large w3-hide-medium w3-black" style="display: flex; justify-content: space-between;">
+        <div style="font-size: 27px; margin-left: 5px;">Cafe Haven</div>
+        <div style="font-size: 30px; cursor: pointer;" onclick="openNav()">
+            &#9776;
+        </div>
+    </nav>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" onclick="closeNav()" class="closebtn">&times;</a>
+        <a href="#" style="text-align: center;">HOME</a>
+        <a href="#about" style="text-align: center;">ABOUT</a>
+        <a href="#menu" style="text-align: center;">MENU</a>
+        <a href="#where" style="text-align: center;">WHERE</a>
+    </div>
+
+    <!--    Header with image   -->
+    <header class="bgimg  w3-display-container" id="home">
+        <img src="coffeehouse.jpg" alt="" class="w3-grayscale-min w3-hide-large w3-hide-medium" height="500px" width="100%">
+        <img src="coffeehouse.jpg" alt="" class="w3-grayscale-min w3-hide-small" height="600px" width="100%">
+        <div class="w3-display-bottomleft w3-center
+        w3-padding-large  w3-hide-small w3-text-black">
+            <span class="w3-tag">Open from 9am to 11pm</span>
+        </div>
+        <div class="w3-center w3-display-middle">
+            <span class="w3-text-white" style="font-size: 90px;">The <br>Cafe Haven</span>
+        </div>
+        <div class="w3-center w3-display-bottomright w3-padding-large">
+            <span class="w3-text-white"> 90 Bedford Street, New York City</span>
+        </div>
+    </header>
+
+    <!--    Adding a background color and large text to the whole page  -->
+    <div class="w3-sand w3-grayscale w3-large">
+
+        <!--    About Contaainer    -->
+        <div class="w3-container" id="about">
+           <div class="w3-content" style="max-width: 700px;">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
+            <p>Central Perk is a fictional coffeehouse from the TV show "Friends," located in New York City's Greenwich Village. It's the main hangout spot for the show's six friends: Rachel, Ross, Monica, Chandler, Joey, and Phoebe. The café's cozy, eclectic atmosphere features a signature orange couch, where the group often gathers. Managed by the quirky Gunther, Central Perk is known for its warm ambiance, live music performances by Phoebe, and iconic window logo. The coffeehouse plays a central role in the series, serving as a backdrop for countless memorable moments and conversations among the friends.</p>
+            <div class="w3-panel w3-leftbar w3-light-gray">
+                <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+                <p>Chef and Coffeeist: Liam Brown</p>
+            </div>
+            <img src="coffeeshop.jpg" alt="" class="w3-margin-top" style="width: 100%; max-width: 1000px;">
+            <p><strong>Opening hours:</strong> everyday from 9am to 11pm</p>
+            <p><strong>Address:</strong> 90 Bedford Street, New York City</p>
+           </div> 
+        </div>
+
+        <!--    Menu Container  -->
+        <div class="w3-container" id="menu">
+            <div class="w3-content" style="max-width: 700px;">
+                <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+                <div class="w3-row w3-center w3-card w3-padding">
+                    <a href="javascript:void(0)" onclick="opneMenu(event, 'Eat');" id="myLink">
+                        <div class="w3-col s6 tablink">Eat</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="opneMenu(event, 'Drinks');">
+                        <div class="w3-col s6 tablink">Drink</div>
+                    </a>
+                </div>
+
+                <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+                    <h5>Honey Almond Granola with Fruits</h5>
+                    <p class="w3-text-gray">Natural cereal of honey toasted oats, raisins, almonds and dates  7.00</p><br>
+                    <h5>Belgian Waffle</h5>
+                    <p class="w3-text-gray">Vanilla flavored batter with malted flour  7.50</p><br>
+                    <h5>Scrambled Eggs</h5>
+                    <p class="w3-text-gray">Scrambled eggs, roasted red pepper and garlic, with green onions  7.50</p><br>
+                    <h5>Blueberry Pancakes</h5>
+                    <p class="w3-text-gray">With syroup, butter and lots of berries  8.50</p>
+                </div>
+
+                <div id="Drinks" class="w3-card w3-container w3-padding-48 menu">
+                    <h5>Coffee</h5>
+                    <p class="w3-text-gray">Regular coffee  2.05</p><br>
+                    <h5>Chocolate</h5>
+                    <p class="w3-text-gray">Chocolate espresso with milk  4.50</p><br>
+                    <h5>Corretto</h5>
+                    <p class="w3-text-gray">Whiskey and coffee  5.00</p><br>
+                    <h5>Iced Tea</h5>
+                    <p class="w3-text-gray">Hot tea, except not hot  3.00</p><br>
+                    <h5>Soda</h5>
+                    <p class="w3-text-gray">Coke, Sprite, Fanta, etc.  2.50</p>
+                </div>
+                <img src="coffeehouse2.jpg" alt="" style="width: 100%; max-width: 1000px;margin-top: 32px;">
+            </div>
+        </div>
+
+        <!--    Contact/Area Container  -->
+        <div class="w3-container" id="where" style="padding-bottom: 32px;">
+            <div class="w3-content" style="max-width: 700px;">
+                <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
+                <p>Find us at 90 Bedford Street, New York City.</p>
+                <img src="map.jpg" alt="" class="w3-image" style="width: 100%;">
+                <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+                <p><strong>Reserve a table:</strong></p>
+                <form action="/booking" method="post">
+                    <p><input type="text" name="name" class="w3-input w3-padding-16 w3-border" placeholder="Name" required></p>
+                    <p><input type="number" name="peoples" class="w3-input w3-padding-16 w3-border" placeholder="How many people" required min="1"></p>
+                    <p><input type="datetime-local" name="date" class="w3-input w3-padding-16 w3-border" placeholder="Date and Time" required id="bookingDate"></p>
+                    <p><input type="text" name="message" class="w3-input w3-padding-16 w3-border" placeholder="Any prior instruction for the Chef ?"></p>
+                    <p><input type="email" name="email" class="w3-input w3-border w3-padding-16" placeholder="Enter your email" required></p>
+                    <p style="display: flex;justify-content: center;"><button class="w3-button w3-black" type="submit" style="width: 140px;">Book</button></p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!--    Footer  -->
+    <footer class="w3-center w3-light-gray w3-padding-48 w3-large">
+        <div></div>
+        <p>Made by: Radhikesh Mishra</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById('mySidenav').style.width = '60%';
+        }
+        function closeNav() {
+            document.getElementById('mySidenav').style.width = '0';
+        }
+
+        // Validating the time
+        function validateTime(){
+            const inputDate = new Date(document.getElementById('bookingDate').value);
+            const hours = inputDate.getHours();
+
+            const minHour = 9;
+            const maxHour = 20;
+
+            if(hours < minHour || hours > max - 1){
+                document.getElementById('bookingDate').value = "";
+                alert('Please select a time between 9am to 8pm.')
+            }
+        }
+        document.getElementById('bookingDate').addEventListener('change', validateTime);
+
+        // Tabbed Menu
+        function opneMenu(evt, menuName){
+            let i, x, tablinks;
+            x = document.getElementsByClassName('menu');
+            for( i = 0; i < x.length; i++){
+                x[i].style.display = 'none';
+            }
+            tablinks = document.getElementsByClassName('tablink');
+            for( i = 0; i < x.length; i++){
+                tablinks[i].className = tablinks[i].className.replace(' w3-dark-gray', '');
+            }
+            document.getElementById(menuName).style.display = 'block';
+            evt.currentTarget.firstElementChild.className += " w3-dark-gray";
+        }
+        document.getElementById('myLink').click();
+    </script>
+</body>
+
+</html>
