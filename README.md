@@ -1,1 +1,1 @@
-# Cafe-Haven
+Cafe website where user can reserve a table.
